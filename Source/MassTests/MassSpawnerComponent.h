@@ -16,15 +16,13 @@ class MASSTESTS_API UMassSpawnerComponent : public UActorComponent
 	class AMassSpawner* SpawnerActor;
 public:
 	// Sets default values for this component's properties
-	UMassSpawnerComponent();
+	UMassSpawnerComponent()=default;
 
 protected:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AMassSpawner> Spawner =nullptr;
 public:
 	virtual void BeginPlay() override;
-	virtual void PostInitProperties() override;
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	UFUNCTION(BlueprintCallable)
 	void Execute();
 };
